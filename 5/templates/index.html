@@ -1,0 +1,203 @@
+{% extends "base.html" %}
+{% block title %}TBBT Trans{% endblock title %}
+{% block head %}
+    {{ super() }}
+{% endblock head %}
+
+{% block jslib %}
+        <script src="static/js/jquery.tmpl.js"></script>
+        <script src="static/js/bootstrap-tab.js"></script>
+        <script type="text/javascript">
+            $('#myTab a').click(function (e) {
+              e.preventDefault();
+              $(this).tab('show');
+            });
+        </script>
+{% endblock jslib %}
+
+{% block header %}
+    {{ super() }}
+{% endblock header %}
+
+{% block content %}
+  <div class="jumbotron masthead">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <h1>An Amazing Way to <i>Watch</i> TBBT Show</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span8 speech-display">
+          <div class="row">
+            <div class="figure-block left">
+              <img src="static/img/Sheldon.png" class="img-rounded" width="75" height="75">
+            </div>
+            <div class="speech left">
+              <p class="speech-bubble left blue">2311 North Los Robles Avenue, Pasadena, California to International Space Station. Can you read me? Over. (Makes static noise)</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="figure-block right">
+              <img src="static/img/Howard.png" class="img-rounded" width="75" height="75">
+            </div>
+            <div class="speech right">
+              <p class="speech-bubble right green">Yes, I read you, Sheldon.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="gellary">
+    <div class="page-header">
+      <h2 class="section-title">All Episodes</h2>
+    </div>
+    <div class="row-fluid">
+      <div class="tabbable  tabs-left"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#tab6" data-toggle="tab">Season 6</a></li>
+          <li><a href="#tab5" data-toggle="tab">Season 5</a></li>
+          <li><a href="#tab4" data-toggle="tab">Season 4</a></li>
+          <li><a href="#tab3" data-toggle="tab">Season 3</a></li>
+          <li><a href="#tab2" data-toggle="tab">Season 2</a></li>
+          <li><a href="#tab1" data-toggle="tab">Season 1</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane" id="tab1">
+            <a href="/episode/01/01" class="episode">Episode 01</a>
+            <a href="/episode/01/02" class="episode">Episode 02</a>
+            <a href="/episode/01/03" class="episode">Episode 03</a>
+            <a href="/episode/01/04" class="episode">Episode 04</a>
+            <a href="/episode/01/05" class="episode">Episode 04</a>
+            <a href="/episode/01/06" class="episode">Episode 06</a>
+            <a href="/episode/01/07" class="episode">Episode 07</a>
+            <a href="/episode/01/08" class="episode">Episode 08</a>
+            <a href="/episode/01/09" class="episode">Episode 09</a>
+            <a href="/episode/01/10" class="episode">Episode 10</a>
+            <a href="/episode/01/11" class="episode">Episode 11</a>
+            <a href="/episode/01/12" class="episode">Episode 12</a>
+            <a href="/episode/01/13" class="episode">Episode 13</a>
+            <a href="/episode/01/14" class="episode">Episode 14</a>
+            <a href="/episode/01/15" class="episode">Episode 15</a>
+            <a href="/episode/01/16" class="episode">Episode 16</a>
+            <a href="/episode/01/17" class="episode">Episode 17</a>
+          </div>
+          <div class="tab-pane" id="tab2">
+            <a href="/episode/02/01" class="episode">Episode 01</a>
+            <a href="/episode/02/02" class="episode">Episode 02</a>
+            <a href="/episode/02/03" class="episode">Episode 03</a>
+            <a href="/episode/02/04" class="episode">Episode 04</a>
+            <a href="/episode/02/05" class="episode">Episode 04</a>
+            <a href="/episode/02/06" class="episode">Episode 06</a>
+            <a href="/episode/02/07" class="episode">Episode 07</a>
+            <a href="/episode/02/08" class="episode">Episode 08</a>
+            <a href="/episode/02/09" class="episode">Episode 09</a>
+            <a href="/episode/02/10" class="episode">Episode 10</a>
+            <a href="/episode/02/11" class="episode">Episode 11</a>
+            <a href="/episode/02/12" class="episode">Episode 12</a>
+            <a href="/episode/02/13" class="episode">Episode 13</a>
+            <a href="/episode/02/14" class="episode">Episode 14</a>
+            <a href="/episode/02/15" class="episode">Episode 15</a>
+            <a href="/episode/02/16" class="episode">Episode 16</a>
+            <a href="/episode/02/17" class="episode">Episode 17</a>
+            <a href="/episode/02/18" class="episode">Episode 18</a>
+            <a href="/episode/02/19" class="episode">Episode 19</a>
+            <a href="/episode/02/20" class="episode">Episode 20</a>
+            <a href="/episode/02/21" class="episode">Episode 21</a>
+            <a href="/episode/02/22" class="episode">Episode 22</a>
+            <a href="/episode/02/23" class="episode">Episode 23</a>
+          </div>
+          <div class="tab-pane" id="tab3">
+            <a href="/episode/03/01" class="episode">Episode 01</a>
+            <a href="/episode/03/02" class="episode">Episode 02</a>
+            <a href="/episode/03/03" class="episode">Episode 03</a>
+            <a href="/episode/03/04" class="episode">Episode 04</a>
+            <a href="/episode/03/05" class="episode">Episode 04</a>
+            <a href="/episode/03/06" class="episode">Episode 06</a>
+            <a href="/episode/03/07" class="episode">Episode 07</a>
+            <a href="/episode/03/08" class="episode">Episode 08</a>
+            <a href="/episode/03/09" class="episode">Episode 09</a>
+            <a href="/episode/03/10" class="episode">Episode 10</a>
+            <a href="/episode/03/11" class="episode">Episode 11</a>
+            <a href="/episode/03/12" class="episode">Episode 12</a>
+            <a href="/episode/03/13" class="episode">Episode 13</a>
+            <a href="/episode/03/14" class="episode">Episode 14</a>
+            <a href="/episode/03/15" class="episode">Episode 15</a>
+            <a href="/episode/03/16" class="episode">Episode 16</a>
+            <a href="/episode/03/17" class="episode">Episode 17</a>
+            <a href="/episode/03/18" class="episode">Episode 18</a>
+            <a href="/episode/03/19" class="episode">Episode 19</a>
+            <a href="/episode/03/20" class="episode">Episode 20</a>
+            <a href="/episode/03/21" class="episode">Episode 21</a>
+            <a href="/episode/03/22" class="episode">Episode 22</a>
+            <a href="/episode/03/23" class="episode">Episode 23</a>
+          </div>
+          <div class="tab-pane" id="tab4">
+            <a href="/episode/04/01" class="episode">Episode 01</a>
+            <a href="/episode/04/02" class="episode">Episode 02</a>
+            <a href="/episode/04/03" class="episode">Episode 03</a>
+            <a href="/episode/04/04" class="episode">Episode 04</a>
+            <a href="/episode/04/05" class="episode">Episode 04</a>
+            <a href="/episode/04/06" class="episode">Episode 06</a>
+            <a href="/episode/04/07" class="episode">Episode 07</a>
+            <a href="/episode/04/08" class="episode">Episode 08</a>
+            <a href="/episode/04/09" class="episode">Episode 09</a>
+            <a href="/episode/04/10" class="episode">Episode 10</a>
+            <a href="/episode/04/11" class="episode">Episode 11</a>
+            <a href="/episode/04/12" class="episode">Episode 12</a>
+            <a href="/episode/04/13" class="episode">Episode 13</a>
+            <a href="/episode/04/14" class="episode">Episode 14</a>
+            <a href="/episode/04/15" class="episode">Episode 15</a>
+            <a href="/episode/04/16" class="episode">Episode 16</a>
+            <a href="/episode/04/17" class="episode">Episode 17</a>
+            <a href="/episode/04/18" class="episode">Episode 18</a>
+            <a href="/episode/04/19" class="episode">Episode 19</a>
+            <a href="/episode/04/20" class="episode">Episode 20</a>
+            <a href="/episode/04/21" class="episode">Episode 21</a>
+            <a href="/episode/04/22" class="episode">Episode 22</a>
+            <a href="/episode/04/23" class="episode">Episode 23</a>
+            <a href="/episode/04/24" class="episode">Episode 24</a>
+          </div>
+          <div class="tab-pane" id="tab5">
+            <a href="/episode/05/01" class="episode">Episode 01</a>
+            <a href="/episode/05/02" class="episode">Episode 02</a>
+            <a href="/episode/05/03" class="episode">Episode 03</a>
+            <a href="/episode/05/04" class="episode">Episode 04</a>
+            <a href="/episode/05/05" class="episode">Episode 05</a>
+            <a href="/episode/05/06" class="episode">Episode 06</a>
+            <a href="/episode/05/07" class="episode">Episode 07</a>
+            <a href="/episode/05/08" class="episode">Episode 08</a>
+            <a href="/episode/05/09" class="episode">Episode 09</a>
+            <a href="/episode/05/10" class="episode">Episode 10</a>
+            <a href="/episode/05/11" class="episode">Episode 11</a>
+            <a href="/episode/05/12" class="episode">Episode 12</a>
+            <a href="/episode/05/13" class="episode">Episode 13</a>
+            <a href="/episode/05/14" class="episode">Episode 14</a>
+            <a href="/episode/05/15" class="episode">Episode 15</a>
+            <a href="/episode/05/16" class="episode">Episode 16</a>
+            <a href="/episode/05/17" class="episode">Episode 17</a>
+            <a href="/episode/05/18" class="episode">Episode 18</a>
+            <a href="/episode/05/19" class="episode">Episode 19</a>
+            <a href="/episode/05/20" class="episode">Episode 20</a>
+            <a href="/episode/05/21" class="episode">Episode 21</a>
+            <a href="/episode/05/22" class="episode">Episode 22</a>
+            <a href="/episode/05/23" class="episode">Episode 23</a>
+            <a href="/episode/05/24" class="episode">Episode 24</a>
+          </div>
+          <div class="tab-pane active" id="tab6">
+            <a href="/episode/06/01" class="episode">Episode 01</a>
+            <a href="/episode/06/02" class="episode">Episode 02</a>
+            <a href="/episode/06/03" class="episode">Episode 03</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock footer %}
