@@ -5,6 +5,7 @@ from flask import Flask, request, session, g, redirect, url_for, \
 from flask import jsonify
 
 from util import deployed_on_sae
+from private_const import app_secret_key
 
 if deployed_on_sae:
 	import sae.storage
@@ -12,7 +13,7 @@ if deployed_on_sae:
 app = Flask(__name__)
 
 app.debug = True
-app.secret_key = '^\xf5Z{j\x02\x8a\xe5\xf3\x97\xb3R\x8f\xc45\xef\xf0\t\x9fe\xcdf\xad\n'
+app.secret_key = app_secret_key
 
 @app.route('/')
 def main():
