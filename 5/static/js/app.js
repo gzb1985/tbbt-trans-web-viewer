@@ -55,7 +55,11 @@ jQuery(function( $ ) {
         fetchTransResult: function(obj, textStatus, xhr) {
             xhr = null;
             if (obj.status && obj.status === 'success') {
-                App.trans = obj.trans;
+                if (obj.trans.hasOwnProperty('scenes')) {
+                    App.trans = obj.trans.scenes;
+                } else {
+                    App.trans = obj.trans;
+                }
                 App.render();
             }
         },

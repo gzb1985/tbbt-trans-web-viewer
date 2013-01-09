@@ -7,7 +7,7 @@ def parse_trans(lines):
 	for line in lines:
 		t = line.split(':')
 		if len(t) == 2:
-			figure = (t[0].split())[0]
+			figure = (t[0].split())[0] #delete additional content, example: Sheldon (larghing)
 			content = t[1].strip()
 			if figure == r'Scene':
 				if speeches: 

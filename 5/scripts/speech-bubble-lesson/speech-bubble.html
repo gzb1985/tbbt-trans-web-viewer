@@ -1,0 +1,55 @@
+<html>
+<head>
+	<style type="text/css">
+		/*主框*/
+		p.speech-bubble  
+		{  
+		    position: relative;  
+		    max-width: 300px;/*最大宽度*/
+		    min-width: 200px;/*最小宽度*/
+		    min-height: 50px;/*最小高度*/
+		    padding: 10px;
+		    color: #000;/*前景色，字体颜色*/
+		    background-color: #9adb93;/*背景颜色*/  
+		    border: 1px solid #6ca537;/*1px的较深颜色边框*/
+		    text-align: center;/*字体对齐*/
+		    font: 1.4em/1.5 Cambria, Georgia, sans-serif;/*字体*/ 
+		    /*圆角*/
+		    -webkit-border-radius: 20px;  
+		       -moz-border-radius: 20px;  
+		            border-radius: 20px;
+		    /*外部阴影*/
+		    -webkit-box-shadow: 1px 1px 2px #6ca537;  
+		       -moz-box-shadow: 1px 1px 2px #6ca537;  
+		            box-shadow: 1px 1px 2px #6ca537;
+		    /*内部阴影*/  
+		    -webkit-box-shadow: 5px 10px 16px rgba(108, 165, 55, 0.5), inset 0 -8px 20px 0 rgba(108, 165, 55, 0.3);
+		       -moz-box-shadow: 5px 10px 16px rgba(108, 165, 55, 0.5), inset 0 -8px 20px 0 rgba(108, 165, 55, 0.3);
+		            box-shadow: 5px 10px 16px rgba(108, 165, 55, 0.5), inset 0 -8px 20px 0 rgba(108, 165, 55, 0.3);
+		    margin-left: 30px;
+		}
+
+		/*after伪元素画箭头*/
+		p.speech-bubble:after  
+		{  
+		    position: absolute;/*定位，以主框为绝对坐标系*/
+		    content: ' ';/*此处内容为空格，否则该元素无法显示*/
+		    width: 0;
+		    height: 0;/*本身是无大小的*/
+		    top: 20px;/*离顶部20px*/
+		    left: -20px;/*离左边-20px，位置在主框外的左边*/
+		    border: 10px solid;/*宽度为10px的border*/
+		    border-color: transparent #9adb93 transparent transparent;/*top right bottom left，仅显示right的1/4部分*/ 
+		}
+
+		/*鼠标悬停*/
+		p.speech-bubble:hover
+		{  
+		    background-color: #9aef93;
+		}
+	</style>
+</head>
+<body>
+	<p class="speech-bubble">This is a speech bubble example!</p>
+</body>
+</html>

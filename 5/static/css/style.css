@@ -15,6 +15,12 @@
     display: block;
 }
 
+.speech-row-display {
+    position: relative;
+    display: block;
+    margin-left: 0;
+}
+
 .speeches {
   list-style-type: none;
 }
@@ -317,7 +323,9 @@
 .subhead h1 {
   font-size: 3em;
   line-height: 50px;
-  font-family: "Brush Script MT", cursive;
+  /*font-family: "Brush Script MT", cursive;*/
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-style: italic;
 }
 
 .subhead p {

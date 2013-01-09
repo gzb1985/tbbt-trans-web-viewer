@@ -11,7 +11,7 @@ def get_trans(url):
 	entry = soup("div", { "class" : "entrytext" })
 	speeches = entry[0].findAll('p')
 	for item in speeches:
-		raw = repr(item)
+		raw = repr(item) # unicode problem if using str(item)
 		speech = re.sub(r'</?\w+[^>]*>','',raw)
 		speech = speech.replace('’', '\'').replace('…', '...').replace('“', '"').replace('”', '"')
 		trans.append(speech)
@@ -28,7 +28,7 @@ for item in soup("li", { "class" : "page_item" }):
 	if obj:
 		series = int(obj.group(1))
 		episode = int(obj.group(2))
-		if series == 6 and episode == 3:
+		if series == 6 and episode > 3:
 			trans = get_trans(url)
 			filename = 's%02de%02d' % (series, episode)
 			filename += '.txt'
