@@ -21,6 +21,7 @@ jQuery(function( $ ) {
         cacheElements: function() {
             this.$scene = $('#scene');
             this.$sceneList = $('#sceneList');
+            this.$loading = $('#loading');
             $.template(this.sceneTmplName, $('#scene-tmpl')[0].innerHTML);//$('#scene-tmpl').text() not work in ie8 browser, use $('#scene-tmpl')[0].innerHTML instead.
             $.template(this.speechRowTmplName, $('#speech-tmpl')[0].innerHTML);
             $.template(this.sceneListTmplName, $('#scene-affix-tmpl')[0].innerHTML);
@@ -70,6 +71,9 @@ jQuery(function( $ ) {
                 this.renderScene(i);
                 this.renderSceneList(i);
             };
+            if (this.trans.length > 0) {
+                this.$loading.hide();
+            }
         },
         prepareSectionId: function(){
             var buf = [];

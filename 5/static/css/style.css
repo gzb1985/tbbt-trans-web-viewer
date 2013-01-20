@@ -9,6 +9,11 @@
 }
 */
 
+#loading {
+  margin: 50px auto 200px auto;
+  display: block;
+}
+
 /*for speech row and figure and speech style*/
 .speech-row {
     position: relative;
