@@ -50,6 +50,11 @@
     margin-top: 10px;
 }
 
+
+.figure-block img:hover {
+    opacity: .8;
+}
+
 .speech {
     position: relative;
     display: block;
