@@ -5,19 +5,33 @@
 * A different way to re-watch your favoiter tbbt episode
 * Displaying transcript in the colorful speech bubbles
 
-## Depends
+##Install
 
-* [Flask](https://github.com/mitsuhiko/flask) -- A python web framework
-* jQuery
-* Bootstrap
+###Prerequisite
 
-## Usage
+    pip install -r requirements.txt
 
-1. Checkout the Git repository
-1. Install Flask
-1. Run `python trans_viewer.py`
+###Custom the Configuration
+    
+    transviewer/config.py
 
-P.S. If you installed [sae python dev server](https://github.com/SAEPython/saepythondevguide), just run `python dev_server.py --storage-path ./storage`.
+###Sync database
+
+    python manage.py createall
+
+###Db populate
+
+    python manage.py populate
+
+###Local run
+
+    python manage.py runserver
+
+###Heroku run
+
+see the scripts in `Procfile`
+
+    web: gunicorn -w 4 -b 0.0.0.0:$PORT -k gevent app:app
 
 ## Acknowledgments
 
@@ -26,7 +40,11 @@ P.S. If you installed [sae python dev server](https://github.com/SAEPython/saepy
 
 ##Website
 
-The code deployed on SinaAppEngine (SAE), [Checkout the website](http://tbbtsubs.sinaapp.com/). the WebKit browsers are prefered.
+Now, the code deployed on Heroku instead SinaAppEngine (SAE). A few modifications should be made if you want to run it on SAE.
+
+[The new website on Heroku](http://tbbttrans.herokuapp.com/)
+
+[The old website](http://tbbtsubs.sinaapp.com/). 
 
 ##Screenshot
 
