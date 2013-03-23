@@ -100,9 +100,15 @@ class Speech(db.Model):
 #db.drop_all()
 db.create_all()
 
+MAX_SEASON = 6
+
 @app.route('/')
 def main():
-	return render_template('index.html')
+    episodes = []
+    for i in range(1,MAX_SEASON+1):
+        e = Episode.query.filter_by(season=i).count()
+        episodes.append(e)
+    return render_template('index.html', episodes = episodes)
 
 @app.route('/episode/<int:season>/<int:episode>')
 def get_episode(season, episode):
