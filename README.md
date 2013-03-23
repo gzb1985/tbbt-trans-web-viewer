@@ -33,6 +33,10 @@ see the scripts in `Procfile`
 
     web: gunicorn -w 4 -b 0.0.0.0:$PORT -k gevent app:app
 
+or, 
+
+    heroku run python app.py
+
 ## Acknowledgments
 
 * All Transcripts come from [Big Bang Theory Transcripts blog](http://bigbangtrans.wordpress.com) by Ash

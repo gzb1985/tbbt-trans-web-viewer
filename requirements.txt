@@ -13,5 +13,5 @@ APScheduler==2.0.3
 # ----------------------
 # Production Server
 # ----------------------
-#gevent
-#gunicorn
+gevent
+gunicorn
