@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block title %}TBBT Trans{% endblock title %}
+{% block head %}
+    {{ super() }}
+{% endblock head %}
+
+{% block jslib %}
+        <script src="static/js/jquery.tmpl.js"></script>
+        <script src="static/js/bootstrap-tab.js"></script>
+        <script type="text/javascript">
+        $(document).ready({
+            $('#myTab a').click(function (e) {
+              e.preventDefault();
+              $(this).tab('show');
+            });
+        });
+        </script>
+{% endblock jslib %}
+
+{% block header %}
+    {{ super() }}
+{% endblock header %}
+
+{% block content %}
+  <div class="jumbotron masthead">
+    <div class="container">
+      <div class="row">
+        <div class="span12">
+          <h1>An Amazing Way to <i>Watch</i> TBBT Show</h1>
+        </div>
+      </div>
+      <div class="span8 speech-display">
+          <div class="row speech-row-display">
+            <div class="figure-block left">
+              <img src="static/img/Sheldon.png" class="img-rounded" width="75" height="75">
+            </div>
+            <div class="speech left">
+              <p class="speech-bubble left blue">2311 North Los Robles Avenue, Pasadena, California to International Space Station. Can you read me? Over. (Makes static noise)</p>
+            </div>
+          </div>
+          <div class="row speech-row-display">
+            <div class="figure-block right">
+              <img src="static/img/Howard.png" class="img-rounded" width="75" height="75">
+            </div>
+            <div class="speech right">
+              <p class="speech-bubble right green">Yes, I read you, Sheldon.</p>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" id="gellary">
+    <div class="page-header">
+      <h2 class="section-title">All Episodes</h2>
+    </div>
+    <div class="row-fluid">
+      <div class="tabbable  tabs-left"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+          {% for ep_num in episodes|reverse %}
+          <li {% if loop.first %}class="active"{%endif%} ><a href="#tab{{ loop.revindex }}" data-toggle="tab">Season {{ loop.revindex }}</a></li>
+          {% endfor %}
+        </ul>
+        <div class="tab-content">
+          {% for ep_num in episodes|reverse %}
+          <div class="tab-pane{% if loop.first %} active{%endif%}" id="tab{{ loop.revindex }}">
+            {% set season = loop.revindex %}
+            {% for ep in range(1, ep_num + 1) %}
+            <a href="/episode/{{season}}/{{ep}}" class="episode">Episode {{ep}}</a>
+            {% endfor %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock content %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock footer %}
