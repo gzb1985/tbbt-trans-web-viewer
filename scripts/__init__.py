@@ -1,0 +1,1 @@
+#!/usr/bin/env python# -*- coding: utf-8 -*- from .trans_parser import parse_trans
