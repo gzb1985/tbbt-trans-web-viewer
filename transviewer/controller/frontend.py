@@ -24,6 +24,10 @@ def index():
         episodes.append(e)
     return render_template('index.html', episodes = episodes)
 
+@frontend.route('/comments')
+def comments():
+    return render_template('comments.html')
+
 @frontend.route('/episode/<int:season>/<int:episode>')
 def get_episode(season, episode):
     return render_template('episode.html', season=season, episode=episode)

@@ -437,3 +437,8 @@ h2.section-title {
     max-width: 700px;
   }
 }
+
+#comments {
+  margin: 30px auto;
+  float: none;
+}
