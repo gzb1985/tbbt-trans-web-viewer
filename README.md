@@ -7,48 +7,39 @@
 
 ##Install
 
-###Prerequisite
+### Clone the code
 
+    git clone https://github.com/gzb1985/tbbt-trans-web-viewer.git
+    cd tbbt-trans-web-viewer
+
+### Virtualenv
+
+    pip install virtualenv
+    virtualenv venv --distribute
+    source venv/bin/activate
     pip install -r requirements.txt
 
-###Custom the Configuration
-    
-    transviewer/config.py
-
-###Sync database
+### Populate database
 
     python manage.py createall
-
-###Db populate
-
     python manage.py populate
 
-###Local run
+### Local run
 
     python manage.py runserver
 
-###Heroku run
+###Custom the Configuration
 
-see the scripts in `Procfile`
+    transviewer/config.py
 
-    web: gunicorn -w 4 -b 0.0.0.0:$PORT -k gevent app:app
+### Gunicorn run
 
-or, 
-
-    heroku run python app.py
+    gunicorn -w 4 -b 127.0.0.1:8000 app:app
 
 ## Acknowledgments
 
 * All Transcripts come from [Big Bang Theory Transcripts blog](http://bigbangtrans.wordpress.com) by Ash
 * Inspired by The [Big Bang Transcripts Viewer](http://www.codeproject.com/Articles/306758/The-Big-Bang-Transcripts-Viewer) (A WP7 app developed by Marcelo Ricardo de Oliveira)
-
-##Website
-
-Now, the code deployed on Heroku instead SinaAppEngine (SAE). A few modifications should be made if you want to run it on SAE.
-
-[The new website on Heroku](http://tbbttrans.herokuapp.com/)
-
-[The old website](http://tbbtsubs.sinaapp.com/). 
 
 ##Screenshot
 
