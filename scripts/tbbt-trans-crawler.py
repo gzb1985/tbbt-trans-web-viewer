@@ -43,3 +43,5 @@ def crawl_tbbt():
 				f.close()
 
 
+if __name__ == '__main__':
+	crawl_tbbt();
