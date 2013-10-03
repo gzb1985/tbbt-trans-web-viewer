@@ -26,6 +26,8 @@ def createall():
 
 import codecs
 def populate_tbbt(sn, ep):
+    if Episode.query.filter_by(season=sn, episode=ep).first():
+        return;
     filename = 's%02de%02d' % (sn, ep)
     print filename
     filename = 'transcripts/tbbt/' + filename + '.txt'
@@ -42,10 +44,9 @@ def populate_tbbt(sn, ep):
             sp = Speech(figure=speech['figure'], content=speech['content'])
             s.speeches.append(sp)
         episode.scenes.append(s)
-    
-    if not Episode.query.filter_by(season=sn, episode=ep).first() :
-        db.session.add(episode)
-        db.session.commit()
+
+    db.session.add(episode)
+    db.session.commit()
 
 def db_populate():
     tbbt_ep_nums = [17, 23, 23, 24, 24, 24]
@@ -66,11 +67,16 @@ def dropall():
     if prompt_bool("Are you sure ? You will lose all your data !"):
         db.drop_all()
 
+from scripts import crawl_tbbt
 @manager.command
 def crawler():
     "get new transcripts"
     db.create_all()
-    db_populate()
+    new_ep = crawl_tbbt()
+    if new_ep:
+        for ep in new_ep:
+            populate_tbbt(ep[0], ep[1])
+
 
 if __name__ == "__main__":
     manager.run()

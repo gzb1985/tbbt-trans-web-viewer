@@ -1,1 +1,1 @@
-#!/usr/bin/env python# -*- coding: utf-8 -*- from .trans_parser import parse_trans
+#!/usr/bin/env python# -*- coding: utf-8 -*- from .trans_parser import parse_transfrom .tbbt_trans_crawler import crawl_tbbt

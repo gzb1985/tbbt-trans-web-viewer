@@ -5,6 +5,7 @@
 import urllib2
 import re
 from BeautifulSoup import BeautifulSoup, Tag, NavigableString
+from transviewer.models import Episode, Scene, Speech
 
 def get_trans(url):
 #page1 = urllib2.urlopen("http://bigbangtrans.wordpress.com/series-6-episode-01-the-date-night-variable/")
@@ -24,6 +25,7 @@ def crawl_tbbt():
 	page = urllib2.urlopen("http://bigbangtrans.wordpress.com")
 	soup = BeautifulSoup(page, convertEntities=BeautifulSoup.HTML_ENTITIES)
 	items = soup.findAll('a', href=re.compile('^http://bigbangtrans.wordpress.com/series'))
+	new_ep = []
 	for item in items:
 		name = item.contents[0]#.encode('utf8')
 		url = item['href']
@@ -31,7 +33,7 @@ def crawl_tbbt():
 		if obj:
 			series = int(obj.group(1))
 			episode = int(obj.group(2))
-			if series == 6 and episode > 14:
+			if not Episode.query.filter_by(season=series, episode=episode).first():
 				trans = get_trans(url)
 				filename = 's%02de%02d' % (series, episode)
 				filename += '.txt'
@@ -41,7 +43,7 @@ def crawl_tbbt():
 				f.write('\n'.join(trans))
 				f.flush()
 				f.close()
+				new_ep.append((series, episode))
+	return new_ep
 
 
-if __name__ == '__main__':
-	crawl_tbbt();
