@@ -5,3 +5,4 @@ Flask-Script
 Werkzeug
 gunicorn
 BeautifulSoup
+schedule
