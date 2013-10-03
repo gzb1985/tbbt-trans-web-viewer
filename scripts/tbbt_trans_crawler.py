@@ -35,7 +35,7 @@ def crawl_tbbt():
 			episode = int(obj.group(2))
 			if not Episode.query.filter_by(season=series, episode=episode).first():
 				trans = get_trans(url)
-				filename = 's%02de%02d' % (series, episode)
+				filename = 'transcripts/tbbt/s%02de%02d' % (series, episode)
 				filename += '.txt'
 				print filename
 				f = open(filename, 'w')
