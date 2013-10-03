@@ -14,14 +14,17 @@ from transviewer.models import Episode, Scene, Speech
 
 frontend = Module(__name__)
 
-MAX_SEASON = 6
+MAX_SEASON = 10
 
 @frontend.route('/')
 def index():
     episodes = []
-    for i in range(1,MAX_SEASON+1):
-        e = Episode.query.filter_by(season=i).count()
-        episodes.append(e)
+    si = 1
+    while si <= MAX_SEASON:
+        ep_num = Episode.query.filter_by(season=si).count()
+        if ep_num != 0:
+            episodes.append(ep_num)
+        si = si + 1
     return render_template('index.html', episodes = episodes)
 
 @frontend.route('/comments')
