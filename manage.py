@@ -48,6 +48,7 @@ def populate_tbbt(sn, ep):
     db.session.add(episode)
     db.session.commit()
 
+
 def db_populate():
     tbbt_ep_nums = [17, 23, 23, 24, 24, 24]
     for s, ep_num in enumerate(tbbt_ep_nums):
