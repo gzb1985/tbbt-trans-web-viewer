@@ -25,7 +25,7 @@ def createall():
     db.create_all()
 
 import codecs
-def populate_tbbt(sn, ep):
+def populate_tbbt(sn, ep, title):
     if Episode.query.filter_by(season=sn, episode=ep).first():
         return;
     filename = 's%02de%02d' % (sn, ep)
@@ -35,7 +35,7 @@ def populate_tbbt(sn, ep):
     lines = f.readlines()
     f.close()
     trans = parse_trans(lines)
-    episode = Episode(season=sn, episode=ep, title='example')
+    episode = Episode(season=sn, episode=ep, title=title)
     episode.scenes = []
     for scene in trans:
         s = Scene(title=scene['scene'])
@@ -76,7 +76,7 @@ def crawler():
     new_ep = crawl_tbbt()
     if new_ep:
         for ep in new_ep:
-            populate_tbbt(ep[0], ep[1])
+            populate_tbbt(ep[0], ep[1], ep[2])
 
 
 if __name__ == "__main__":

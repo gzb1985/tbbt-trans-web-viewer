@@ -28,16 +28,14 @@ def crawl_tbbt():
 	new_ep = []
 	for item in items:
 		name = item.contents[0]#.encode('utf8')
-                #print name
 		url = item['href']
 		obj = re.search(r'Series\s(\d)\sEpisode\s(\d+)\s\W+\s(\w.*)$', name)
 		if obj:
 			series = int(obj.group(1))
 			episode = int(obj.group(2))
-                        title = obj.group(3)
-                        #title = title.replace(u'\xc2\xa0', ' ')
-                        title = re.sub(r'\W+', ' ', title)
-                        print series, episode, title
+			title = obj.group(3)
+			title = re.sub(r'\W+', ' ', title)
+			print series, episode, title
 			if not Episode.query.filter_by(season=series, episode=episode).first():
 				trans = get_trans(url)
 				filename = 'transcripts/tbbt/s%02de%02d' % (series, episode)
@@ -48,7 +46,7 @@ def crawl_tbbt():
 				f.write('\n'.join(trans))
 				f.flush()
 				f.close()
-				new_ep.append((series, episode))
+				new_ep.append((series, episode, title))
 	return new_ep
 
 

@@ -33,7 +33,8 @@ def comments():
 
 @frontend.route('/episode/<int:season>/<int:episode>')
 def get_episode(season, episode):
-    return render_template('episode.html', season=season, episode=episode)
+    ep = Episode.query.filter_by(season=season, episode=episode).first()
+    return render_template('episode.html', season=season, episode=episode, title=ep.title)
 
 @frontend.route('/trans/<int:season>/<int:episode>')
 def get_trans(season, episode):

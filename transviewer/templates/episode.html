@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}The Big Bang Theory Transcript Season {{season}} Episode {{episode}}{% endblock title %}
+{% block title %}The Big Bang Theory Transcript Season {{season}} Episode {{episode}} {{title}}{% endblock title %}
 {% block head %}
     {{ super() }}
 {% endblock head %}
@@ -24,7 +24,7 @@
     <div class="container">
       <div class="row">
         <div class="span12">
-          <h1>The Big Bang Theory Season {{season}} Episode {{episode}}</h1>
+          <h1>Season {{season}} Episode {{episode}}: {{ title }}</h1>
         </div>
       </div>
     </div>
