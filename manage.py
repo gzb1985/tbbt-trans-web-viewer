@@ -11,8 +11,8 @@ from transviewer.extensions import db
 from transviewer.models import Episode, Scene, Speech
 from scripts import parse_trans
 
-manager = Manager(create_app(config_obj='transviewer.config.DevelopmentConfig'))
-
+#manager = Manager(create_app(config_obj='transviewer.config.DevelopmentConfig'))
+manager = Manager(create_app(config_obj='transviewer.config.ProductionConfig'))
 manager.add_command("runserver", Server('0.0.0.0',port=5000))
 
 def _make_context():
