@@ -31,10 +31,24 @@ def index():
 def comments():
     return render_template('comments.html')
 
+
+def episode_desc(ep):
+    desc = 'Sheldon, Leonard, Howard, Raj, Penny, Amy, Bernadette'
+    try:
+        desc = ep.scenes[0].title + u'. ' +  ep.scenes[0].speeches[0].figure + u': ' + ep.scenes[0].speeches[0].content
+    except:
+        pass
+    try:
+        desc = desc + u' ' +  ep.scenes[0].speeches[1].figure + u': ' + ep.scenes[0].speeches[1].content
+    except:
+        pass
+    return desc
+
 @frontend.route('/episode/<int:season>/<int:episode>')
 def get_episode(season, episode):
     ep = Episode.query.filter_by(season=season, episode=episode).first()
-    return render_template('episode.html', season=season, episode=episode, title=ep.title)
+    desc = episode_desc(ep)
+    return render_template('episode.html', season=season, episode=episode, title=ep.title, desc=desc)
 
 @frontend.route('/trans/<int:season>/<int:episode>')
 def get_trans(season, episode):

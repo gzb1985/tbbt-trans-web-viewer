@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block title %}The Big Bang Theory Transcript Season {{season}} Episode {{episode}} {{title}}{% endblock title %}
+{% block description %}<meta name="description" content="{{ desc }}">{% endblock description %}
 {% block head %}
     {{ super() }}
 {% endblock head %}
